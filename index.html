@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BERT · mini BERT 프로젝트 — 마인드맵</title>
+<style>
+:root{color-scheme:light}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:#F0EEE6;
+font-family:"맑은 고딕","Malgun Gothic",system-ui,sans-serif}
+#bar{position:fixed;top:0;left:0;right:0;height:46px;z-index:10;background:#141413;
+color:#fff;display:flex;align-items:center;gap:12px;padding:0 16px}
+#bar b{color:#D97757;font-size:15px}
+#bar span{font-size:12px;color:#a8a49b}
+#bar a{margin-left:auto;color:#D97757;font-size:12px;text-decoration:none;
+border:1px solid #55524b;border-radius:6px;padding:5px 12px}
+#bar a:hover{background:#2a2825}
+#mm{position:fixed;top:46px;left:0;right:0;bottom:0;width:100%}
+#tip{position:fixed;bottom:14px;left:16px;z-index:10;font-size:11.5px;color:#6C6B68;
+background:rgba(255,255,255,.85);border-radius:6px;padding:6px 12px}
+</style></head><body>
+
+<div id="bar">
+  <b>BERT · mini BERT 프로젝트</b>
+  <span>마인드맵</span>
+  <a href="bert_project.md">전체 문서 보기</a>
+</div>
+<svg id="mm"></svg>
+<div id="tip">가지를 클릭하면 접기 / 펼치기 · 드래그로 이동 · 휠로 확대축소</div>
+
+<script src="https://cdn.jsdelivr.net/npm/d3@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-view@0.15.4"></script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-lib@0.15.4/dist/browser/index.js"></script>
+<script>
+const MD = "# BERT \u00b7 mini BERT \ud504\ub85c\uc81d\ud2b8\n\n## \ub4e4\uc5b4\uac00\uba70\n\n### \ub370\uc774\ud130 \ub2e4\uc6b4\ub85c\ub4dc\n\n### \ud559\uc2b5 \ub0b4\uc6a9\n\n### \ud559\uc2b5 \ubaa9\ud45c\n\n## Tokenizer \uc900\ube44\n\n## \ub370\uc774\ud130 \uc804\ucc98\ub9ac (1) MASK \uc0dd\uc131\n\n### \ud83d\udd36 create_pretrain_mask() : Masked LM\uc744 \uc704\ud55c \ucf54\ud37c\uc2a4 \uc0dd\uc131 \uba54\uc18c\ub4dc\n\n## \ub370\uc774\ud130 \uc804\ucc98\ub9ac (2) NSP pair \uc0dd\uc131\n\n### \ud83d\udd36 create_pretrain_instances() : Next Sentence Prediction\uc744 \uc704\ud55c \ucf54\ud37c\uc2a4 \uc0dd\uc131 \uba54\uc18c\ub4dc\n\n## \ub370\uc774\ud130 \uc804\ucc98\ub9ac (3) \ub370\uc774\ud130\uc14b \uc644\uc131\n\n### \ud83d\udd36 make_pretrain_data() : BERT pretrain \ub370\uc774\ud130\uc14b \uc0dd\uc131 \uba54\uc18c\ub4dc\n\n### \ud83d\udd36 load_pre_train_data() : \ud559\uc2b5\uc5d0 \ud544\uc694\ud55c \ub370\uc774\ud130\ub97c \ub85c\ub529\ud558\ub294 \ud568\uc218\n\n## BERT \ubaa8\ub378 \uad6c\ud604\n\n## pretrain \uc9c4\ud589\n\n## \ud504\ub85c\uc81d\ud2b8 : mini BERT \ub9cc\ub4e4\uae30\n\n### \ub77c\uc774\ube0c\ub7ec\ub9ac \ubc84\uc804\uc744 \ud655\uc778\ud574 \ubd05\ub2c8\ub2e4.\n\n### 1. Tokenizer \uc900\ube44\n\n### 2. \ub370\uc774\ud130 \uc804\ucc98\ub9ac (1) MASK \uc0dd\uc131\n\n### 3. \ub370\uc774\ud130 \uc804\ucc98\ub9ac (2) NSP pair \uc0dd\uc131\n\n### 4. \ub370\uc774\ud130 \uc804\ucc98\ub9ac (3) \ub370\uc774\ud130\uc14b \uc644\uc131\n\n### 5. BERT \ubaa8\ub378 \uad6c\ud604\n\n### 6. pretrain \uc9c4\ud589\n\n### 7. \ud504\ub85c\uc81d\ud2b8 \uacb0\uacfc\n\n## \ud83c\udfaf \ud504\ub85c\uc81d\ud2b8 : mini BERT \ub9cc\ub4e4\uae30\n\n### \uc774 \ub178\ud2b8\ubd81\uc5d0\uc11c \ud558\ub294 \uc77c\n\n### \uc81c\ucd9c \ub8e8\ube0c\ub9ad\uacfc \uc774 \ub178\ud2b8\ubd81\uc758 \ub300\uc751\n\n### \uc2e4\ud589 \uc21c\uc11c\n\n### STEP 0 \u00b7 \ud658\uacbd \uc124\uc815\n\n### STEP 1 \u00b7 \ud1a0\ud06c\ub098\uc774\uc800 \uc900\ube44 (vocab 8,000)\n\n#### \uc65c subword(BPE)\uc778\uac00\n\n#### \uc774 \ud504\ub85c\uc81d\ud2b8\uc758 \uc120\ud0dd : vocab_size = 8,000\n\n#### \u26a0\ufe0f \ubc18\ub4dc\uc2dc \uc9c0\ucf1c\uc57c \ud560 \uac83 : vocab_size + 7\n\n### STEP 2 \u00b7 \ub370\uc774\ud130 \uc804\ucc98\ub9ac (1) MLM \ub9c8\uc2a4\ud0b9\n\n#### MLM(Masked Language Model)\uc774\ub780\n\n#### \uaddc\uce59 \u2460 \uc804\uccb4 \ud1a0\ud070\uc758 15%\ub97c \uace0\ub978\ub2e4\n\n#### \uaddc\uce59 \u2461 \uace0\ub978 15% \uc548\uc5d0\uc11c \ub2e4\uc2dc 80 : 10 : 10\n\n#### \uaddc\uce59 \u2462 (\uc911\uc694) \ub744\uc5b4\uc4f0\uae30 \ub2e8\uc704\ub85c \ud1b5\uc9f8 \uac00\ub9b0\ub2e4 \u2014 \ub17c\ubb38\uc5d0 \uc5c6\ub294 \uad6c\ud604 \ub514\ud14c\uc77c\n\n### STEP 3 \u00b7 \ub370\uc774\ud130 \uc804\ucc98\ub9ac (2) NSP \ud398\uc5b4 \uc0dd\uc131\n\n#### NSP(Next Sentence Prediction)\ub780\n\n#### \ub9cc\ub4dc\ub294 \uc808\ucc28\n\n#### \uad6c\ud604\ud558\uba70 \uac78\ub838\ub358 \ubd80\ubd84 2\uac00\uc9c0\n\n#### MLM\uacfc NSP\ub294 \ud55c \ub370\uc774\ud130\uc5d0 \uac19\uc774 \ub4e4\uc5b4\uac04\ub2e4\n\n### STEP 4 \u00b7 \ub370\uc774\ud130 \uc804\ucc98\ub9ac (3) \ub370\uc774\ud130\uc14b \uc644\uc131\n\n#### \uc774\ubc88 \ud504\ub85c\uc81d\ud2b8\uc5d0\uc11c \uc81c\uc77c \ud604\uc2e4\uc801\uc778 \ubcbd\n\n#### \ubb38\uc81c : \ub7a8\uc774 \uac10\ub2f9 \ubabb \ud55c\ub2e4\n\n#### \ud574\uacb0 : np.memmap\n\n#### MLM \ub77c\ubca8\uc744 \ub9cc\ub4dc\ub294 \ubc29\uc2dd (\uc911\uc694)\n\n### STEP 5 \u00b7 mini BERT \ubaa8\ub378 (\uc57d 1M \ud30c\ub77c\ubbf8\ud130)\n\n#### \uad6c\uc870 \u2014 \uacb0\uad6d Transformer Encoder \uc785\ub2c8\ub2e4\n\n#### 1M \uc744 \ub9de\ucd94\uae30 \uc704\ud55c config \uc124\uacc4\n\n#### \u26a0\ufe0f \uac00\uc7a5 \uc911\uc694\ud55c \uc124\uc815 : n_vocab = len(vocab)\n\n#### \uc54c\uc544\ub458 \uc810 : \ud30c\ub77c\ubbf8\ud130\uc758 73%\uac00 \uc784\ubca0\ub529 \ud589\ub82c\n\n### STEP 6 \u00b7 Pretrain \uc9c4\ud589 (10 Epoch)\n\n#### \ud575\uc2ec : MLM \uacfc NSP \ub97c \ub3d9\uc2dc\uc5d0 \ud559\uc2b5\ud55c\ub2e4\n\n#### ignore_index=0 \uc774 \uc911\uc694\ud55c \uc774\uc720\n\n#### Learning Rate \uc2a4\ucf00\uc904 : Warmup \u2192 Cosine\n\n#### \ud558\uc774\ud37c\ud30c\ub77c\ubbf8\ud130\n\n#### \ub450 \uc815\ud655\ub3c4\ub97c \ub098\ub780\ud788 \ube44\uad50\ud558\uba74 \uc548 \ub418\ub294 \uc774\uc720\n\n### STEP 7 \u00b7 \uacb0\uacfc \uc2dc\uac01\ud654 & \ubaa8\ub378 \uc800\uc7a5\n\n#### \ubb34\uc5c7\uc744 \ubd10\uc57c \ud558\ub294\uac00\n\n### STEP 8 \u00b7 \ud68c\uace0\n\n#### \ub8e8\ube0c\ub9ad \uc790\uccb4 \uc810\uac80\n\n#### \uc9c1\uc811 \ub9cc\ub4e4\uc5b4 \ubcf4\uace0 \uc54c\uac8c \ub41c \uac83\n\n#### \ud55c\uacc4\uc640 \ub2e4\uc74c \ub2e8\uacc4";
+window.addEventListener("load", function () {
+  const { Transformer } = window.markmap;
+  const { Markmap } = window.markmap;
+  const transformer = new Transformer();
+  const { root } = transformer.transform(MD);
+  Markmap.create("#mm", {
+    colorFreezeLevel: 2,
+    initialExpandLevel: 2,
+    duration: 300,
+    spacingVertical: 8,
+    spacingHorizontal: 90,
+    paddingX: 16,
+    maxWidth: 320
+  }, root);
+});
+</script></body></html>
